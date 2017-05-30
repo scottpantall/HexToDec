@@ -23,27 +23,23 @@ public class Main {
         int decValue = 0;
         char[] numbers = line.toCharArray();
         
-        for(int i = 0; i < numbers.length; i++) {
-            int digitValue = 0;
-            
+        for(int i = 0; i < numbers.length; i++) {            
             if(Character.getNumericValue(numbers[i]) == -1) {
                 // Character is a letter
                 switch(numbers[i]) {
-                    case 'a': digitValue = 10;
+                    case 'a': decValue += 10 * Math.pow(16, (numbers.length - (i + 1)));
                               break;
-                    case 'b': digitValue = 11;
+                    case 'b': decValue += 11 * Math.pow(16, (numbers.length - (i + 1)));
                               break;
-                    case 'c': digitValue = 12;
+                    case 'c': decValue += 12 * Math.pow(16, (numbers.length - (i + 1)));
                               break;
-                    case 'd': digitValue = 13;
+                    case 'd': decValue += 13 * Math.pow(16, (numbers.length - (i + 1)));
                               break;
-                    case 'e': digitValue = 14;
+                    case 'e': decValue += 14 * Math.pow(16, (numbers.length - (i + 1)));
                               break;
-                    case 'f': digitValue = 15;
+                    case 'f': decValue += 15 * Math.pow(16, (numbers.length - (i + 1)));
                               break;
                 }
-                
-                decValue += digitValue * Math.pow(16, (numbers.length - (i + 1)));
             }
             else {
                 decValue += Character.getNumericValue(numbers[i]) * Math.pow(16, (numbers.length - (i + 1)));
